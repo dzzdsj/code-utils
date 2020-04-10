@@ -1,0 +1,44 @@
+spring:
+  servlet:
+#    文件上传相关配置
+    multipart:
+#      允许附件上传
+      enabled: true
+#      限定了当上传的文件超过一定长度时，就先写到临时文件里。这有助于上传文件不占用过多的内存，单位是MB 或者KB，默认是0,即不限定阔值。
+      file-size-threshold: 0
+#      临时文件的存放目录，如果不设定，则是Web 服务器提供的一个临时目录。
+      location:
+#        单个文件的最大长度，默认是1MB
+      max-file-size: 3MB
+#      单次HTTP 请求上传的最大长度，默认是10MB
+      max-request-size: 10MB
+#      当文件和参数被访问的时候再解析成文件
+      resolve-lazily: false
+  datasource:
+    name: mytest
+    url: jdbc:mysql://127.0.0.1:3306/mytest?useUnicode=true&characterEncoding=UTF8
+    username: dzzdsj
+    password: Dzzdsj@126.com
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    driverClassName : com.mysql.jdbc.Driver
+    maxPoolPreparedStatementPerConnectionSize: 20
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.dzzdsj.demo.codeutils.SpringBootDemo.Transactional.entity
+  config-locations: classpath:mybatis/mybatis-config.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

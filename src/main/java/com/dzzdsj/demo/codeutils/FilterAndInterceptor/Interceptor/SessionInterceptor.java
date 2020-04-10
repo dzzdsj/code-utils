@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 @Component
 public class SessionInterceptor extends HandlerInterceptorAdapter{
+    /**
+     * 在调用Controller 方法前会调用此方法
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) throws Exception {
         String sessionId=request.getHeader("sessionId");

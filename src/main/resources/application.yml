@@ -36,6 +36,17 @@ spring:
     maxOpenPreparedStatements: 20
     driverClassName : com.mysql.jdbc.Driver
     maxPoolPreparedStatementPerConnectionSize: 20
+  data:
+    mongodb:
+      uri: mongodb://dzzdsj:Dzzdsj%40126.com@127.0.0.1:27017/test
+  redis:
+    host: 127.0.0.1
+    password: Dzzdsj@126.com
+    jedis:
+      pool:
+        max-active: 8
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.dzzdsj.demo.codeutils.SpringBootDemo.Transactional.entity

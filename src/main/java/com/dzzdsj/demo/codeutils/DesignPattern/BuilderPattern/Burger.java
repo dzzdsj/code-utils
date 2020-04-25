@@ -3,8 +3,8 @@ package com.dzzdsj.demo.codeutils.DesignPattern.BuilderPattern;
 public abstract class Burger implements Item {
 
     @Override
-    public String pack() {
-        return "Wrapper";
+    public Packing packing() {
+        return new Wrapper();
     }
 
     @Override

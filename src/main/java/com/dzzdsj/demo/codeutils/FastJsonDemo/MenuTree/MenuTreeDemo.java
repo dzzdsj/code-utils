@@ -1,43 +1,54 @@
 package com.dzzdsj.demo.codeutils.FastJsonDemo.MenuTree;
 
-import com.alibaba.fastjson.JSON;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuTreeDemo {
     public static void main(String[] args) {
-        List<Menu> menuList = initMenuTree();//初始化所有叶子节点
-        String menuListStr = JSON.toJSONString(menuList);
-        System.out.println("menuListStr:"+menuListStr);
-        List<Menu> rootList = getRootList(menuList);//1.获取所有根节点
-        System.out.println("rootList:"+rootList);
-        for (Menu menu:rootList){
-            List<Menu> childList = new ArrayList<>();
-            childList.addAll(getChild(menu.getId(),menuList));
-        }
+        //初始化所有节点
+        List<Menu> leefList = initMenuTree();
+        //1.获取所有根节点
+        List<Menu> rootList = getRootList(leefList);
+        //2.递归->为所有根节点找到他对应的子节点
+        rootList.forEach(out -> {
+            List<Menu> childList = getChild(out.getId(), leefList);
+            out.setChild(childList);
+        });
+        System.out.println(rootList);
     }
 
     private static List<Menu> getRootList(List<Menu> menuList) {
         List<Menu> rootList = new ArrayList<>();
-        for (Menu menu: menuList) {
-            if(menu.getParentId()==0){
+        for (Menu menu : menuList) {
+            if (menu.getParentId() == 0) {
                 rootList.add(menu);
             }
         }
         return rootList;
     }
 
-    private static List<Menu> getChild(int id, List<Menu> menuList){
+    /**
+     * 在所有叶子节点中获取当前id的子节点
+     *
+     * @param id
+     * @param menuList
+     * @return
+     */
+    private static List<Menu> getChild(int id, List<Menu> menuList) {
         List<Menu> childList = new ArrayList<>();
-        for(Menu menu: menuList){
-            if(menu.getParentId()==id){
+        for (Menu menu : menuList) {
+            if (menu.getParentId() == id) {
                 childList.add(menu);
             }
         }
         return childList;
     }
 
+    /**
+     * 初始化所有节点
+     *
+     * @return
+     */
     private static List<Menu> initMenuTree() {
         List<Menu> menuList = new ArrayList<>();
         Menu menu1 = new Menu(1, 0, "aa", "bb", "cc");

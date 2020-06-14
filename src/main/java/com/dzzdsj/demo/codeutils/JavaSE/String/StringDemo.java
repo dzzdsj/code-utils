@@ -9,7 +9,9 @@ public class StringDemo {
     public static void main(String[] args) {
         /**String类常用方法*/
         String str = "ab888aa";
-        System.out.println(str.indexOf("888a"));
+        System.out.println(str.indexOf("888a"));//2  匹配的字符串第一个字符的索引
+        System.out.println("kkkdddkk".substring(2));//kdddkk  从起始索引（包括）开始至结束
+        System.out.println("kkkdddkk".substring(0,2));//kk   从起始索引开始（包括）至结束索引（不包括）
         System.out.println(str.matches("......."));
         System.out.println(str.replaceAll("\\d","-"));//正则替换
         System.out.println(str.replace("8","-"));//正常的字符串替换
@@ -21,12 +23,15 @@ public class StringDemo {
         System.out.println(str.equalsIgnoreCase("AB888aA"));//比较,忽略大小写
         System.out.println("kkbbbs".startsWith("kk"));
         System.out.println("kkbbbs".endsWith("bs"));
-        System.out.println("kkkdddkk".substring(2));//kdddkk
         System.out.println("  AB888aA  ".trim());//
         System.out.println(String.valueOf(9L));//如果参数是对象看是否重写了toString方法
         //
         String[] strArray = "kk/kddd/ggh/ss/".split("/");
 
+        String group = "fdfsF/ilePath".substring(0, "fdfsF/ilePath".indexOf("/"));//截取第一个“/”之前的字符串
+        System.out.println(group);
+        String path = "fdfsF/ilePath".substring("fdfsF/ilePath".indexOf("/")+1);//截取第一个“/”之后的字符串
+        System.out.println(path);
 
         /**常用构造方法*/
 //        String s1 = new String("dd");

@@ -13,15 +13,15 @@ http://www.broadview.com.cn/31065
 package com.dzzdsj.demo.codeutils.JavaSE.Thread.MultiThreadInAction.ch2;
 
 public class SafeCircularSeqGenerator implements CircularSeqGenerator {
-  private short sequence = -1;
+    private short sequence = -1;
 
-  @Override
-  public synchronized short nextSequence() {
-    if (sequence >= 999) {
-      sequence = 0;
-    } else {
-      sequence++;
+    @Override
+    public synchronized short nextSequence() {
+        if (sequence >= 999) {
+            sequence = 0;
+        } else {
+            sequence++;
+        }
+        return sequence;
     }
-    return sequence;
-  }
 }

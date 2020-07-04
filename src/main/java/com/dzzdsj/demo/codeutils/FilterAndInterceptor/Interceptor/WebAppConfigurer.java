@@ -18,9 +18,9 @@ import java.util.List;
  */
 
 @Configuration
-public class WebAppConfigurer extends WebMvcConfigurationSupport  {
+public class WebAppConfigurer extends WebMvcConfigurationSupport {
 
-//    @Bean
+    //    @Bean
 //    public SessionInterceptor sessionInterceptor() {
 //        return new SessionInterceptor();
 //    }

@@ -12,7 +12,7 @@ public class EmailSpider {
         try {
             BufferedReader br = new BufferedReader(new FileReader("D:\\git\\myGit\\demo\\code-utils\\src\\main\\java\\com\\dzzdsj\\demo\\codeutils\\JavaSE\\Regex\\emailhtml.html"));
             String line = "";
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 parse(line);
             }
         } catch (FileNotFoundException e) {
@@ -28,7 +28,7 @@ public class EmailSpider {
         Pattern p = Pattern.compile("[A-Za-z0-9\\u4e00-\\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+");
 //        Pattern p = Pattern.compile("[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+");//不包含汉字
         Matcher m = p.matcher(line);
-        while (m.find()){
+        while (m.find()) {
             System.out.println(m.group());
         }
     }

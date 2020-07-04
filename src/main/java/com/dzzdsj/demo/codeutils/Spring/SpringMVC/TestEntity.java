@@ -6,8 +6,11 @@ import lombok.Data;
 public class TestEntity {
     private int id;
     private String name;
-    TestEntity(){}
-    TestEntity(int id, String name){
+
+    TestEntity() {
+    }
+
+    TestEntity(int id, String name) {
         this.id = id;
         this.name = name;
     }

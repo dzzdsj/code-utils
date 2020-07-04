@@ -15,35 +15,46 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MVCConfigurer implements WebMvcConfigurer {
     @Autowired
     private SessionInterceptor sessionInterceptor;
-    /**拦截器*/
+
+    /**
+     * 拦截器
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(sessionInterceptor).addPathPatterns("/certificate/**", "/exam/**", "/enterprise/**", "/institution/**", "/regulators/**", "/user/**", "/message/send", "/message/getMessageTemplate", "/excel/**", "/password/modify");
     }
     /**跨域访问配置*/
-    /**出于安全的考虑，浏览器会禁止AJAX 访问不同域的地址。W3C 的CORS 规范（ Cross-origin
-     resource sharing ）允许实现跨域访问，并被现在大多数浏览器支持*/
+    /**
+     * 出于安全的考虑，浏览器会禁止AJAX 访问不同域的地址。W3C 的CORS 规范（ Cross-origin
+     * resource sharing ）允许实现跨域访问，并被现在大多数浏览器支持
+     */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
 //        registry.addMapping("/**");//允许所有跨域
         //配置允许跨域访问的细节
         registry.addMapping("/api/**")
                 .allowedOrigins("http://domain.com")
-                .allowedMethods("GET","POST")
+                .allowedMethods("GET", "POST")
                 .allowedHeaders("sessionId");
     }
-    /**格式化*/
+
+    /**
+     * 格式化
+     */
     @Override
     public void addFormatters(FormatterRegistry registry) {
         //DateFormatter 类实现将字符串转为日期类型java.util.Data
 //        registry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
         //todo 未试验成功
     }
-    /**URI到视图的映射*/
+
+    /**
+     * URI到视图的映射
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //重定向请求
-        registry.addRedirectViewController("/a/**","/b");
+        registry.addRedirectViewController("/a/**", "/b");
     }
     //other interface
 }

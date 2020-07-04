@@ -12,14 +12,14 @@ public class TestFrame {
 //        frame.setSize(200,200);
 //        frame.setBackground(Color.BLUE);
         /**能用继承尽量用，可以用自己的成员变量*/
-        MyFrame f1 = new MyFrame(100,100,200,200, Color.blue);
+        MyFrame f1 = new MyFrame(100, 100, 200, 200, Color.blue);
     }
 }
 
-class MyFrame extends Frame{
+class MyFrame extends Frame {
     static int id = 0;
 
-    public MyFrame(int x, int y, int w, int h, Color color){
+    public MyFrame(int x, int y, int w, int h, Color color) {
         super("MyFrame" + (id++));
         setBackground(color);
         setLayout(null);

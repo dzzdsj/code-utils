@@ -26,8 +26,8 @@ public class Test {
         User user1 = new User();
         User user2 = new User();
 //        user1.setName("a");
-        System.out.println(Objects.equals(user1.getName(),"a"));
-        System.out.println(Objects.equals(user1,user2));
+        System.out.println(Objects.equals(user1.getName(), "a"));
+        System.out.println(Objects.equals(user1, user2));
         System.out.println(user1.equals(user2));
 //        System.out.println(user1.getName().equals("a"));//空指针
 

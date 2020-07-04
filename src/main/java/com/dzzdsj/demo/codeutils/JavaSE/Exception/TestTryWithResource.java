@@ -11,7 +11,7 @@ public class TestTryWithResource {
     public static void main(String[] args) {
         int b = 0;
         try (FileInputStream fis = new FileInputStream("D:\\git\\myGit\\demo\\code-utils\\src\\main\\java\\com\\dzzdsj\\demo\\codeutils\\JavaSE\\IO\\testIO.txt");
-        ){
+        ) {
             long num = 0;
             while ((b = fis.read()) != -1) {
                 System.out.print((char) b);

@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 @RestController
 public class TestController {
     @GetMapping("/echo")
-    public void test(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void test(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Thread currentThread = Thread.currentThread();
         // 获取当前线程的线程名称
         String currentThreadName = currentThread.getName();

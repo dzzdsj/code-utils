@@ -15,10 +15,12 @@ public class ProducerConsumer {
 
     }
 }
+
 //窝头
-class Wotou{
+class Wotou {
     //编号
     private int id;
+
     public Wotou(int id) {
         this.id = id;
     }
@@ -30,14 +32,16 @@ class Wotou{
                 '}';
     }
 }
+
 //装窝头的容器（栈）
-class SyncStack{
-    private int index =0;
+class SyncStack {
+    private int index = 0;
     Wotou[] arrWT = new Wotou[6];
+
     //往容器装
-    public synchronized void push(Wotou wt){
+    public synchronized void push(Wotou wt) {
 //        if(index == arrWT.length){
-        while (index == arrWT.length){
+        while (index == arrWT.length) {
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -47,12 +51,13 @@ class SyncStack{
 //        this.notify();
         this.notifyAll();
         arrWT[index] = wt;
-        index ++;
+        index++;
     }
+
     //取出
-    public synchronized Wotou pop(){
+    public synchronized Wotou pop() {
 //        if(index == 0){
-        while (index == 0){
+        while (index == 0) {
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -61,12 +66,12 @@ class SyncStack{
         }
 //        this.notify();
         this.notifyAll();
-        index --;
+        index--;
         return arrWT[index];
     }
 }
 
-class Producer implements Runnable{
+class Producer implements Runnable {
     SyncStack ss = null;
 
     public Producer(SyncStack ss) {
@@ -78,10 +83,10 @@ class Producer implements Runnable{
         for (int i = 0; i < 20; i++) {
             Wotou wt = new Wotou(i);
             ss.push(wt);
-            System.out.println("producer"+wt);
+            System.out.println("producer" + wt);
             // TODO: 2020/3/25 不加睡眠时间可能有问题
             try {
-                Thread.sleep((int)(1000*Math.random()));
+                Thread.sleep((int) (1000 * Math.random()));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -89,7 +94,7 @@ class Producer implements Runnable{
     }
 }
 
-class Consumer implements Runnable{
+class Consumer implements Runnable {
     SyncStack ss = null;
 
     public Consumer(SyncStack ss) {
@@ -100,10 +105,10 @@ class Consumer implements Runnable{
     public void run() {
         for (int i = 0; i < 20; i++) {
             Wotou wt = ss.pop();
-            System.out.println("consumer"+wt);
+            System.out.println("consumer" + wt);
             // TODO: 2020/3/25 不加睡眠时间可能有问题
             try {
-                Thread.sleep((int)(1000*Math.random()));
+                Thread.sleep((int) (1000 * Math.random()));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

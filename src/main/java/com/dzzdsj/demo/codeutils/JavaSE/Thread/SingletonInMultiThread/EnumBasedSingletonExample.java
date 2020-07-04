@@ -16,27 +16,30 @@ package com.dzzdsj.demo.codeutils.JavaSE.Thread.SingletonInMultiThread;
  * 利用枚举类型实现线程安全的单例模式
  */
 public class EnumBasedSingletonExample {
-  public static void main(String[] args) {
-    Thread t = new Thread() {
-      @Override
-      public void run() {
-        System.out.println(Singleton.class.getName());
-        Singleton.INSTANCE.someService();
-      };
-    };
-    t.start();
-  }
+    public static void main(String[] args) {
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                System.out.println(Singleton.class.getName());
+                Singleton.INSTANCE.someService();
+            }
 
-  public static enum Singleton {
-    INSTANCE;
-    // 私有构造器
-    Singleton() {
-      System.out.println("Singleton inited.");
+            ;
+        };
+        t.start();
     }
 
-    public void someService() {
-      System.out.println("someService invoked.");
-      // 省略其他代码
+    public static enum Singleton {
+        INSTANCE;
+
+        // 私有构造器
+        Singleton() {
+            System.out.println("Singleton inited.");
+        }
+
+        public void someService() {
+            System.out.println("someService invoked.");
+            // 省略其他代码
+        }
     }
-  }
 }

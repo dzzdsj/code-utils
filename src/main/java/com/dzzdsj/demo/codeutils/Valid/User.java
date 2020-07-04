@@ -11,11 +11,18 @@ import java.util.Date;
 @Data
 public class User {
     //定义新增时校验组
-    public interface Add{};
+    public interface Add {
+    }
+
+    ;
+
     //定义更新时校验组
-    public interface Update{};
-    @Null(message = "新增id必须为空",groups = {Add.class})
-    @NotNull(message = "id不能为空",groups = {Update.class})
+    public interface Update {
+    }
+
+    ;
+    @Null(message = "新增id必须为空", groups = {Add.class})
+    @NotNull(message = "id不能为空", groups = {Update.class})
     private Long id;
     private String name;
     private String address;

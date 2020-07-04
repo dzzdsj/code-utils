@@ -25,9 +25,11 @@ public class TransformFormat {
         SimpleObject object = JSON.parseObject(jsonStr, SimpleObject.class);
         System.out.println(object);
         //json字符串转java对象2(需要带引号的字符串，restTemplate接收时用String.class，不能直接用JSONObject)
-        SimpleObject object2 = JSON.parseObject(jsonStr, new TypeReference<SimpleObject>(){});
+        SimpleObject object2 = JSON.parseObject(jsonStr, new TypeReference<SimpleObject>() {
+        });
         System.out.println(object2);
-        Simple object3 = JSON.parseObject(jsonStr, new TypeReference<Simple>(){});
+        Simple object3 = JSON.parseObject(jsonStr, new TypeReference<Simple>() {
+        });
         System.out.println(object3);
         //不一定要属性一一对应，构造需要的属性转换即可
         Simple simple = JSON.parseObject(jsonStr, Simple.class);

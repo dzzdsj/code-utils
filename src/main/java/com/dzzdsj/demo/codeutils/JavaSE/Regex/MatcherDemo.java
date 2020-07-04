@@ -25,29 +25,29 @@ public class MatcherDemo {
         System.out.println("--------------------2");
         System.out.println(m.find());
         /**若能成功匹配，返回开始匹配的位置和结束位置+1*/
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
         System.out.println(m.find());
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
         System.out.println(m.find());
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
         System.out.println(m.find());
 //        System.out.println(m.start()+"-"+m.end()); //必须匹配才能使用，不然抛异常
         /**每次都从头开始找*/
         System.out.println("-------------------3");
         System.out.println(m.lookingAt());
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
         System.out.println(m.lookingAt());
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
         System.out.println(m.lookingAt());
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
         System.out.println(m.lookingAt());
-        System.out.println(m.start()+"-"+m.end());
+        System.out.println(m.start() + "-" + m.end());
 
         /**
          * 字符串替换
          */
         System.out.println("-------------------4");
-        Pattern p1 = Pattern.compile("java",Pattern.CASE_INSENSITIVE);//忽略大小写
+        Pattern p1 = Pattern.compile("java", Pattern.CASE_INSENSITIVE);//忽略大小写
         Matcher m1 = p1.matcher("sss java java JAVA JaVa JAVa IloveJavA YouhateJaVA ggghhhjkd");
         while (m1.find()) {
             System.out.println(m1.group());
@@ -56,12 +56,12 @@ public class MatcherDemo {
         StringBuffer sb = new StringBuffer();
         int i = 0;
         m1.reset();
-        while (m1.find()){
+        while (m1.find()) {
             i++;
-            if(i % 2 == 0){
-                m1.appendReplacement(sb,"java");
-            }else {
-                m1.appendReplacement(sb,"JAVA");
+            if (i % 2 == 0) {
+                m1.appendReplacement(sb, "java");
+            } else {
+                m1.appendReplacement(sb, "JAVA");
             }
         }
         m1.appendTail(sb);
@@ -73,7 +73,7 @@ public class MatcherDemo {
         /**第几个左小括号组号就是几*/
         Pattern p2 = Pattern.compile("(\\d{3,5})([a-z]{2})");
         Matcher m2 = p2.matcher("123aa-345bb-234cc-00");
-        while (m2.find()){
+        while (m2.find()) {
             System.out.println(m2.group());
             System.out.println(m2.group(1));
             System.out.println(m2.group(2));

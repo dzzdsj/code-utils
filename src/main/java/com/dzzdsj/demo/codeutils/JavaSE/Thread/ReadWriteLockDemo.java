@@ -15,27 +15,27 @@ public class ReadWriteLockDemo {
     private final Lock readLock = readWriteLock.readLock();
     private final Lock writeLock = readWriteLock.writeLock();
 
-    public void reader(){
+    public void reader() {
         readLock.lock();
-        try{
+        try {
             //读共享变量
-        }finally {
+        } finally {
             readLock.unlock();//在finally里释放锁，避免锁泄漏
         }
     }
 
-    public void writer(){
+    public void writer() {
         writeLock.lock();
-        try{
+        try {
             //读、写共享变量
-        }finally {
+        } finally {
             writeLock.unlock();//在finally里释放锁，避免锁泄漏
         }
     }
 
     //ReentrantReadWriteLock支持锁的降级：即持有写锁的情况下继续申请读锁
     // 而不支持锁的升级，升级需要先释放读锁，再申请写锁
-    public void operationWithLockDowngrade(){
+    public void operationWithLockDowngrade() {
         boolean readLockAcquired = false;
         writeLock.lock(); // 申请写锁
         try {

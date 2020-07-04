@@ -29,6 +29,7 @@ public class RestTemplateConfiguration {
     private int connectTimeout; //连接超时默认2s
     @Value("${remote.readTimeout:30000}")
     private int readTimeout; //读取超时默认30s
+
     //创建HTTP客户端工厂
     private ClientHttpRequestFactory createFactory() {
         if (this.maxTotalConnect <= 0) {
@@ -45,6 +46,7 @@ public class RestTemplateConfiguration {
         factory.setReadTimeout(this.readTimeout);
         return factory;
     }
+
     //初始化RestTemplate,并加入spring的Bean工厂，由spring统一管理
     @Bean
     @ConditionalOnMissingBean(RestTemplate.class)

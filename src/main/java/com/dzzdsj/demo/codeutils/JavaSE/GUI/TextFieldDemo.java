@@ -10,7 +10,7 @@ public class TextFieldDemo {
     }
 }
 
-class TFFrame extends Frame{
+class TFFrame extends Frame {
     public TFFrame() {
         super();
         TextField textField = new TextField();
@@ -22,7 +22,7 @@ class TFFrame extends Frame{
     }
 }
 
-class TFActionListener implements ActionListener{
+class TFActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         TextField textField = (TextField) e.getSource();//获取事情源对象

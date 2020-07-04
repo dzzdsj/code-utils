@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 @Configuration
 public class JacksonConf {
     @Bean
-    public ObjectMapper getObjectMapper(){
+    public ObjectMapper getObjectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         return objectMapper;

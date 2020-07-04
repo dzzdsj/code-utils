@@ -16,7 +16,7 @@ import java.io.IOException;
 @RestController
 public class RestRedirectAndForwardDemo {
     @GetMapping("/restRedirectUrl")
-    public void restRedirectUrl(HttpServletRequest request, HttpServletResponse response){
+    public void restRedirectUrl(HttpServletRequest request, HttpServletResponse response) {
         try {
 //            response.sendRedirect("/mvc9?id=7");
 //            response.sendRedirect("http://127.0.0.1:8080/mvc9?id=7");
@@ -25,8 +25,9 @@ public class RestRedirectAndForwardDemo {
             e.printStackTrace();
         }
     }
+
     @GetMapping("/restForwardUrl")
-    public void restForwardUrl(HttpServletRequest request, HttpServletResponse response){
+    public void restForwardUrl(HttpServletRequest request, HttpServletResponse response) {
         try {
 //            request.getRequestDispatcher("new.jsp").forward(request, response);
             request.getRequestDispatcher("/mvc9?id=7").forward(request, response);

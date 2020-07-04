@@ -12,19 +12,16 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class POIWriteDemo {
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         /**xls*/
         // 创建工作薄
         HSSFWorkbook workbook = new HSSFWorkbook();
         // 创建工作表
         HSSFSheet sheet = workbook.createSheet("sheet1");
 
-        for (int row = 0; row < 10; row++)
-        {
+        for (int row = 0; row < 10; row++) {
             HSSFRow rows = sheet.createRow(row);
-            for (int col = 0; col < 10; col++)
-            {
+            for (int col = 0; col < 10; col++) {
                 // 向工作表中添加数据
                 rows.createCell(col).setCellValue("data" + row + col);
             }
@@ -40,11 +37,9 @@ public class POIWriteDemo {
         // 创建工作表
         XSSFSheet xsheet = xworkbook.createSheet("sheet1");
 
-        for (int row = 0; row < 10; row++)
-        {
+        for (int row = 0; row < 10; row++) {
             XSSFRow rows = xsheet.createRow(row);
-            for (int col = 0; col < 10; col++)
-            {
+            for (int col = 0; col < 10; col++) {
                 // 向工作表中添加数据
                 rows.createCell(col).setCellValue("data" + row + col);
             }

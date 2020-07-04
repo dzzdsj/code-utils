@@ -13,7 +13,7 @@ public class TestOutputStream {
         try {
             fis = new FileInputStream("D:\\git\\myGit\\demo\\code-utils\\src\\main\\java\\com\\dzzdsj\\demo\\codeutils\\JavaSE\\IO\\testIO.txt");
             fos = new FileOutputStream("D:\\git\\myGit\\demo\\code-utils\\src\\main\\java\\com\\dzzdsj\\demo\\codeutils\\JavaSE\\IO\\testOut.txt");
-            while ((b=fis.read())!=-1){
+            while ((b = fis.read()) != -1) {
                 fos.write(b);
             }
             fis.close();

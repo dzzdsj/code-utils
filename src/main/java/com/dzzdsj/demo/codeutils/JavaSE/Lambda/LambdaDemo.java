@@ -4,7 +4,6 @@ import java.util.function.*;
 
 public class LambdaDemo {
     public static void main(String[] args) {
-        
 
 
         //自定义函数式接口
@@ -20,7 +19,7 @@ public class LambdaDemo {
         Supplier<Double> supplier = () -> Math.random();
         System.out.println(supplier.get());
         //一因一果：一入参一返回值
-        Function<String,Boolean> function = str -> str.equals("hello worl");
+        Function<String, Boolean> function = str -> str.equals("hello worl");
         System.out.println(function.apply(s));
         //参数校验:一个入参，返回boolean
         Predicate<String> predicate = str -> str.equals("hello worl");

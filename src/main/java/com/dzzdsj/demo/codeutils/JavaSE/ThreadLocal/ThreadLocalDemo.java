@@ -1,12 +1,12 @@
 package com.dzzdsj.demo.codeutils.JavaSE.ThreadLocal;
 
- /* @Author 安仔夏天很勤奋
-        * Create Date is  2019/3/21
-        *
-        * 描述 Java中的ThreadLocal类允许我们创建只能被同一个线程读写的变量。
-        * 因此，如果一段代码含有一个ThreadLocal变量的引用，即使两个线程同时执行这段代码，
-        * 它们也无法访问到对方的ThreadLocal变量。
-        */
+/* @Author 安仔夏天很勤奋
+ * Create Date is  2019/3/21
+ *
+ * 描述 Java中的ThreadLocal类允许我们创建只能被同一个线程读写的变量。
+ * 因此，如果一段代码含有一个ThreadLocal变量的引用，即使两个线程同时执行这段代码，
+ * 它们也无法访问到对方的ThreadLocal变量。
+ */
 public class ThreadLocalDemo {
     /**
      * 创建了一个MyRunnable实例，并将该实例作为参数传递给两个线程。两个线程分别执行run()方法，
@@ -22,6 +22,7 @@ public class ThreadLocalDemo {
          * 他们仍然无法访问到对方的值。
          */
         private ThreadLocal threadLocal = new ThreadLocal();
+
         @Override
         public void run() {
             //一旦创建了一个ThreadLocal变量，你可以通过如下代码设置某个需要保存的值
@@ -31,7 +32,7 @@ public class ThreadLocalDemo {
             } catch (InterruptedException e) {
             }
             //可以通过下面方法读取保存在ThreadLocal变量中的值
-            System.out.println("-------threadLocal value-------"+threadLocal.get());
+            System.out.println("-------threadLocal value-------" + threadLocal.get());
         }
     }
 

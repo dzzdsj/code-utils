@@ -1,4 +1,5 @@
 package com.dzzdsj.demo.codeutils.druid;
+
 import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +24,13 @@ public class DruidDBConfig {
 
     /**
      * 在同样的DataSource中，首先使用被标注的DataSource
+     *
      * @return DataSource
      */
     @Bean
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DruidDataSource datasource = new DruidDataSource();
         return datasource;
     }

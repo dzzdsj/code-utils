@@ -13,39 +13,41 @@ http://www.broadview.com.cn/31065
 package com.dzzdsj.demo.codeutils.JavaSE.Thread.SingletonInMultiThread;
 
 
-
 public class StaticHolderSingleton {
-  // 私有构造器
-  private StaticHolderSingleton() {
-    System.out.println("StaticHolderSingleton inited.");
-  }
-
-  static class InstanceHolder {
-    // 保存外部类的唯一实例
-    static {
-      System.out.println("InstanceHolder inited.");
+    // 私有构造器
+    private StaticHolderSingleton() {
+        System.out.println("StaticHolderSingleton inited.");
     }
-    final static StaticHolderSingleton INSTANCE = new StaticHolderSingleton();
-  }
 
-  public static StaticHolderSingleton getInstance() {
-    System.out.println("getInstance invoked.");
-    return InstanceHolder.INSTANCE;
-  }
+    static class InstanceHolder {
+        // 保存外部类的唯一实例
+        static {
+            System.out.println("InstanceHolder inited.");
+        }
 
-  public void someService() {
-    System.out.println("someService invoked.");
-    // 省略其他代码
-  }
+        final static StaticHolderSingleton INSTANCE = new StaticHolderSingleton();
+    }
 
-  public static void main(String[] args) {
-    Thread t = new Thread() {
-      @Override
-      public void run() {
-        System.out.println(StaticHolderSingleton.InstanceHolder.class.getName());
-        StaticHolderSingleton.InstanceHolder.INSTANCE.someService();
-      };
-    };
-    t.start();
-  }
+    public static StaticHolderSingleton getInstance() {
+        System.out.println("getInstance invoked.");
+        return InstanceHolder.INSTANCE;
+    }
+
+    public void someService() {
+        System.out.println("someService invoked.");
+        // 省略其他代码
+    }
+
+    public static void main(String[] args) {
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                System.out.println(StaticHolderSingleton.InstanceHolder.class.getName());
+                StaticHolderSingleton.InstanceHolder.INSTANCE.someService();
+            }
+
+            ;
+        };
+        t.start();
+    }
 }

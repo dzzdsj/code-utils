@@ -14,16 +14,16 @@ public class ArraySort {
         }
         long startTime = System.currentTimeMillis();
         Arrays.sort(array);
-        System.out.println("cost:"+(System.currentTimeMillis()-startTime));
+        System.out.println("cost:" + (System.currentTimeMillis() - startTime));
 //        for (int i = 0; i < array.length; i++) {
 //            System.out.println(array[i]);
 //        }
-        List<Double>  doubleList = new ArrayList<>();
+        List<Double> doubleList = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
             doubleList.add(Math.random());
         }
         long startTime2 = System.currentTimeMillis();
         Collections.sort(doubleList);
-        System.out.println("cost:"+(System.currentTimeMillis()-startTime2));
+        System.out.println("cost:" + (System.currentTimeMillis() - startTime2));
     }
 }

@@ -14,9 +14,10 @@ public class SimplePlus2 {
     }
 }
 
-class SimplePlusFrame2 extends Frame{
+class SimplePlusFrame2 extends Frame {
     TextField textField1, textField2, textField3;//将frame内的组件定义为成员变量
-    public void launchFrame()  {
+
+    public void launchFrame() {
         textField1 = new TextField(10);
         textField2 = new TextField(10);
         textField3 = new TextField(20);
@@ -33,7 +34,7 @@ class SimplePlusFrame2 extends Frame{
         setVisible(true);
     }
 
-    class BtnActionListener2 implements ActionListener{
+    class BtnActionListener2 implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             int num1 = Integer.parseInt(textField1.getText());

@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransactionalDemo {
     @Autowired
     private TransactionalService transactionalService;
+
     @GetMapping("/addTestUser")
-    public void addUser() throws Exception{
+    public void addUser() throws Exception {
         try {
             transactionalService.addUser();
             System.out.println("ok");
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("fail");
         }
     }

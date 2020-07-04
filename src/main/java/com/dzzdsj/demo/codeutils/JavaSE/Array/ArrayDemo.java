@@ -11,20 +11,20 @@ public class ArrayDemo {
         /**动态初始化*/
         int[] array;
         array = new int[5];
-        for(int i=0;i<array.length;i++){
+        for (int i = 0; i < array.length; i++) {
             /**按成员变量的规则默认初始化*/
             System.out.println(array[i]);//默认初始化的值是0
-            array[i]=i;
+            array[i] = i;
         }
         String[] strArr;
         strArr = new String[5];
-        for(int i=0;i<strArr.length;i++){
+        for (int i = 0; i < strArr.length; i++) {
             System.out.println(strArr[i]);//默认初始化的值是null
-            strArr[i]=i+"";
+            strArr[i] = i + "";
         }
 //        int[] b = new int[5];
         /**静态初始化*/
-        int[] intArr = {1,2,3};
+        int[] intArr = {1, 2, 3};
         Date[] days = {
                 new Date(),
                 new Date()
@@ -38,24 +38,24 @@ public class ArrayDemo {
         a[2] = new int[4];
         int c[][] = new int[3][6];//同时分配的写法
         /**静态初始化*/
-        int b[][] = {{1,2},{1,3,4},{2,3,4,5}};
+        int b[][] = {{1, 2}, {1, 3, 4}, {2, 3, 4, 5}};
         /**遍历二维数组*/
-        for(int i=0;i<b.length;i++){
-            for(int j=0;j<b[i].length;j++){
-                System.out.println("b["+i+"]["+j+"]="+b[i][j]+"");
+        for (int i = 0; i < b.length; i++) {
+            for (int j = 0; j < b[i].length; j++) {
+                System.out.println("b[" + i + "][" + j + "]=" + b[i][j] + "");
             }
         }
         /**数组的拷贝*/
-        int[] d = {1,2,3};
-        int[] e = {2,3,4,5};
-        System.arraycopy(d,0,e,0,d.length);
+        int[] d = {1, 2, 3};
+        int[] e = {2, 3, 4, 5};
+        System.arraycopy(d, 0, e, 0, d.length);
         e[0] = 100;
         System.out.println("-------e");
-        for(int i=0;i<e.length;i++) {
+        for (int i = 0; i < e.length; i++) {
             System.out.println(e[i]);
         }
         System.out.printf("--------d");
-        for(int i=0;i<d.length;i++) {
+        for (int i = 0; i < d.length; i++) {
             System.out.println(d[i]);
         }
     }

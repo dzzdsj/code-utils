@@ -20,7 +20,7 @@ public class TestInputStream {
         } catch (IOException e) {
             System.out.println("###########");
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 fis.close();
             } catch (IOException e) {

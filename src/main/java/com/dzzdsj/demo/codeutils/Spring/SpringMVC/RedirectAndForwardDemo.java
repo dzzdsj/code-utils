@@ -2,6 +2,7 @@ package com.dzzdsj.demo.codeutils.Spring.SpringMVC;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,13 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class RedirectAndForwardDemo {
     @GetMapping("/redirectUrl")
-    public String redirectUrl(){
+    public String redirectUrl() {
         return "redirect:/mvc9?id=7";
 //        return "redirect:http://127.0.0.1:8080/mvc9?id=7";
 //        return "redirect:http://www.baidu.com";
     }
+
     @GetMapping("/forwardUrl")
-    public String forwardUrl(HttpServletRequest request, HttpServletResponse response){
+    public String forwardUrl(HttpServletRequest request, HttpServletResponse response) {
         return "forward:/mvc9?id=7";
     }
 }

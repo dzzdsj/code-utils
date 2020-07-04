@@ -13,9 +13,10 @@ public class SimplePlus {
     }
 }
 
-class SimplePlusFrame extends Frame{
+class SimplePlusFrame extends Frame {
     TextField textField1, textField2, textField3;//将frame内的组件定义为成员变量
-    public void launchFrame()  {
+
+    public void launchFrame() {
         textField1 = new TextField(10);
         textField2 = new TextField(10);
         textField3 = new TextField(20);
@@ -33,8 +34,9 @@ class SimplePlusFrame extends Frame{
     }
 }
 
-class BtnActionListener implements ActionListener{
+class BtnActionListener implements ActionListener {
     Frame frame = null;
+
     //持有整个frame对象的引用
     public BtnActionListener(Frame frame) {
         this.frame = frame;

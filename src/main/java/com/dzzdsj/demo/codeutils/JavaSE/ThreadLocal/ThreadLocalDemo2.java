@@ -8,12 +8,12 @@ public class ThreadLocalDemo2 {
      * initialValue()为当前线程初始副本变量值。
      * remove()方法移除当前前程的副本变量值。
      */
-    private static ThreadLocal<Integer> threadLocalInt = new ThreadLocal(){
-    @Override
-    protected Object initialValue() {
-        return super.initialValue();
-    }
-};
+    private static ThreadLocal<Integer> threadLocalInt = new ThreadLocal() {
+        @Override
+        protected Object initialValue() {
+            return super.initialValue();
+        }
+    };
 
     public static void setThreadLocalInt(int value) {
         threadLocalInt.set(value);

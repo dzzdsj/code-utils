@@ -193,21 +193,22 @@ public class Test {
                 "    \"startRows\": null\n" +
                 "}";
         JSONObject resp = JSON.parseObject(s);
-        List<HouseCategory> houseCategoryList = JSON.parseObject(resp.getString("data"),new TypeReference<List<HouseCategory>>(){});
+        List<HouseCategory> houseCategoryList = JSON.parseObject(resp.getString("data"), new TypeReference<List<HouseCategory>>() {
+        });
 
         List<HouseCategoryVo> rootList = new ArrayList<>();
-        for(HouseCategory houseCategory:houseCategoryList){
-            if(houseCategory.getParentId().equals("00000000000000000000000000000000")){
+        for (HouseCategory houseCategory : houseCategoryList) {
+            if (houseCategory.getParentId().equals("00000000000000000000000000000000")) {
                 HouseCategoryVo houseCategoryVo = new HouseCategoryVo();
                 houseCategoryVo.setHouseCategory(houseCategory);
                 rootList.add(houseCategoryVo);
             }
         }
 
-        for(HouseCategoryVo houseCategoryVo:rootList){
+        for (HouseCategoryVo houseCategoryVo : rootList) {
             List<HouseCategoryVo> houseCategoryVoList = new ArrayList<>();
-            for(HouseCategory houseCategory:houseCategoryList){
-                if(isChild(houseCategoryVo.getHouseCategory(),houseCategory)){
+            for (HouseCategory houseCategory : houseCategoryList) {
+                if (isChild(houseCategoryVo.getHouseCategory(), houseCategory)) {
                     HouseCategoryVo houseCategoryVo1 = new HouseCategoryVo();
                     houseCategoryVo1.setHouseCategory(houseCategory);
                     houseCategoryVoList.add(houseCategoryVo1);
@@ -221,8 +222,8 @@ public class Test {
         System.out.println(resp);
     }
 
-    public static boolean isChild(HouseCategory parent, HouseCategory child){
-        if(parent.getCatalogId().equals(child.getParentId())){
+    public static boolean isChild(HouseCategory parent, HouseCategory child) {
+        if (parent.getCatalogId().equals(child.getParentId())) {
             return true;
         }
         return false;

@@ -14,7 +14,7 @@ public class ActionEventDemo {
         Monitor monitor = new Monitor();//创建实现了ActionListener接口的实现类
         button.addActionListener(monitor);//注册监听器到组件
 //        button.setActionCommand("press");//区分按钮的一种方式
-        frame.add(button,BorderLayout.CENTER);
+        frame.add(button, BorderLayout.CENTER);
         frame.pack();
         frame.setVisible(true);
     }

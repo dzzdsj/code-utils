@@ -6,13 +6,13 @@ package com.dzzdsj.demo.codeutils.JavaSE.String;
 public class StringBufferDemo {
     public static void main(String[] args) {
         StringBuffer sb = new StringBuffer("dd");
-        sb.append("ee");//
+        sb.append("ee");//ddee
         System.out.println(sb);
-        sb.insert(1,"kk");
+        sb.insert(1, "kk");//dkkdee
         System.out.println(sb);
-        sb.delete(2,2);
+        sb.delete(3, 4);//dkkee
         System.out.println(sb);
-        System.out.println(sb.reverse());//
-        System.out.println(sb.indexOf("k"));
+        System.out.println(sb.reverse());//eekkd
+        System.out.println(sb.indexOf("k"));//2
     }
 }
